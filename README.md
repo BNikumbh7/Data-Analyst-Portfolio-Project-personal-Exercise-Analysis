@@ -102,3 +102,4 @@ DIVIDE(
 ( CurrentWeek – PreviousWeek ),
 PreviousWeek
 )
+
