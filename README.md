@@ -38,7 +38,7 @@ AVERAGE( FACT_Activity[Steps] )
 Total Steps – This is a simple SUM function around the Steps column:
 SUM( FACT_Activity[Steps] )
 
-Steps (Running) – This is a calculation to isolate the Total Steps measure by filtering it by the “Running Activity”:
+### Steps (Running) – This is a calculation to isolate the Total Steps measure by filtering it by the “Running Activity”:
 
 CALCULATE(
 [Total Steps],
