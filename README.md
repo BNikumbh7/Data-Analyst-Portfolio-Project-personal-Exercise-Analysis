@@ -32,41 +32,41 @@ the FACT table is connected to two dimension tables with the correct relationshi
 # Calculations
 The following calculations were created in the Power BI reports using DAX (Data Analysis Expressions). To lessen the extent of coding, the re-use of measures (measure branching) was emphasized:
 
-# Average Steps – This is a simple AVERAGE function around the Steps column:
+Average Steps – This is a simple AVERAGE function around the Steps column:
 AVERAGE( FACT_Activity[Steps] )
 
-# Total Steps – This is a simple SUM function around the Steps column:
+Total Steps – This is a simple SUM function around the Steps column:
 SUM( FACT_Activity[Steps] )
 
-# Steps (Running) – This is a calculation to isolate the Total Steps measure by filtering it by the “Running Activity”:
+Steps (Running) – This is a calculation to isolate the Total Steps measure by filtering it by the “Running Activity”:
 
 CALCULATE(
 [Total Steps],
 DIM_Activity[ActivityName] = “Running”
 )
 
-# Steps (Walking) – This is a calculation to isolate the Total Steps measure by filtering it by the “Walking Activity”:
+Steps (Walking) – This is a calculation to isolate the Total Steps measure by filtering it by the “Walking Activity”:
 
 CALCULATE(
 [Total Steps],
 DIM_Activity[ActivityName] = “Walking”
 )
 
-# Running % of Total – Here we are using two measures from before to find the % of steps that were done by running:
+Running % of Total – Here we are using two measures from before to find the % of steps that were done by running:
 
 DIVIDE(
 [Steps (Running)],
 [Total Steps]
 )
 
-# Walking % of Total – Here we are using two measures from before to find the % of steps that were done by walking:
+Walking % of Total – Here we are using two measures from before to find the % of steps that were done by walking:
 
 DIVIDE(
 [Steps (Walking)],
 [Total Steps]
 )
 
-# Total Steps (Cumulative) – Here we are re-using the Total Steps measure and using different functions to cumulatively calculate the total steps:
+Total Steps (Cumulative) – Here we are re-using the Total Steps measure and using different functions to cumulatively calculate the total steps:
 
 CALCULATE(
 [Total Steps],
@@ -77,7 +77,7 @@ DIM_Date[Date]
 )
 )
 
-# Week Over Week % Change Steps – Here we are using the Total Steps measure and using different functions, with variables, to calculate the Week over Week % Change of Steps:
+Week Over Week % Change Steps – Here we are using the Total Steps measure and using different functions, with variables, to calculate the Week over Week % Change of Steps:
 
 VAR CurrentWeek =
 CALCULATE(
